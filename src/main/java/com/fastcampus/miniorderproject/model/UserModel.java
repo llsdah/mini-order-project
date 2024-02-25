@@ -1,16 +1,10 @@
 package com.fastcampus.miniorderproject.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
@@ -43,9 +37,5 @@ public class UserModel {
     @Setter
     private String status;
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(this.authority));
-
-    }
 
 }

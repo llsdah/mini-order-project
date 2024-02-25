@@ -1,0 +1,36 @@
+"""
+schema 부분입니다.
+"""
+# 확인 중
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+type Query {
+    getUser(id: ID!): UserModel
+    getAllUsers: [UserModel]
+
+}
+
+type UserModel {
+    id: ID!
+    name: String!
+    password: String!
+    email: String!
+    address: String
+    nickName: String
+    authority: String
+    status: String
+}
+
+type Mutation {
+    createUser(name: String!, email: String!, address: String, nickName: String, authority: String): UserModel
+    updateUser(id: ID!, name: String, email: String, address: String, nickName: String, authority: String, status: String ): UserModel
+    deleteUser(id: ID!): Boolean
+}
+
+type Subscription {
+    userCreated: UserModel
+}

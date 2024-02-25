@@ -1,6 +1,5 @@
 package com.fastcampus.miniorderproject.service;
 
-import com.fastcampus.miniorderproject.config.MyJwtProvider;
 import com.fastcampus.miniorderproject.model.CartModel;
 import com.fastcampus.miniorderproject.model.UserModel;
 import com.fastcampus.miniorderproject.repository.CartRepository;
@@ -9,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -19,8 +19,8 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private CartRepository cartRepository;
-    @Autowired
-    private MyJwtProvider myJwtProvider;
+    //@Autowired
+    //private MyJwtProvider myJwtProvider;
 
     /**
      * 회원 생성 동시에 장바구니 생성
@@ -48,7 +48,7 @@ public class UserService {
         String token = "";
 
         if(opResult.isPresent()){
-            token = myJwtProvider.generateToken(opResult.get());
+            //token = myJwtProvider.generateToken(opResult.get());
             log.info("token : "+token);
             return true;
         }
@@ -56,5 +56,14 @@ public class UserService {
         log.info("[FAIL] validateIDAndPW");
         return false;
 
+    }
+
+    public List<UserModel> findAll() {
+        return userRepository.findAll();
+    }
+
+    public Boolean deleteUser(Long id) {
+        userRepository.deleteById(id);
+        return true;
     }
 }

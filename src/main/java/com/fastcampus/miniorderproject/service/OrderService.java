@@ -3,13 +3,12 @@ package com.fastcampus.miniorderproject.service;
 
 import com.fastcampus.miniorderproject.model.*;
 import com.fastcampus.miniorderproject.repository.*;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

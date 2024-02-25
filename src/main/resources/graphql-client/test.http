@@ -1,0 +1,8 @@
+
+
+mutation {
+createUser(name : "Lee",email : "test@test.com",address:"서울",nickName:"name",authority:"회원") {
+id
+name
+}
+}

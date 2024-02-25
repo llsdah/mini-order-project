@@ -1,11 +1,10 @@
 package com.fastcampus.miniorderproject.model;
 
-import jdk.jfr.Enabled;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Getter
