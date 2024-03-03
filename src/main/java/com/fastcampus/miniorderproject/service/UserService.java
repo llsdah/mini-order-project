@@ -28,10 +28,12 @@ public class UserService {
      * @return
      */
     public UserModel saveUser(UserModel userModel) {
+        log.info("saveUser");
         UserModel result = userRepository.save(userModel);
         CartModel cartModel = new CartModel();
         cartModel.setUser(result);
         cartRepository.save(cartModel);
+        log.info("saveUser result : "+ result);
         return result;
     }
 
@@ -45,11 +47,9 @@ public class UserService {
         Optional<UserModel> opResult = userRepository.findByEmailAndPassword(
                 userModel.getEmail(),userModel.getPassword());
 
-        String token = "";
-
         if(opResult.isPresent()){
-            //token = myJwtProvider.generateToken(opResult.get());
-            log.info("token : "+token);
+            //String token = myJwtProvider.generateToken(opResult.get());
+            //log.info("token : "+ token";
             return true;
         }
 

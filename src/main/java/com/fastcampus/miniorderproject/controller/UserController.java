@@ -27,8 +27,10 @@ public class UserController {
     @ResponseBody
     public UserModel createUser(@RequestBody UserModel userModel) {
         log.info("[START] UserController createUser");
+        log.info("userModel : "+userModel.toString());
         UserModel result = userService.saveUser(userModel);
-        log.info("[END] UserController createUser");
+        log.info("result : "+result.toString());
+        log.info("[END] UserController createUser ");
         return result;
     }
 

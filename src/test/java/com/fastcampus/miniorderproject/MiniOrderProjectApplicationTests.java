@@ -1,13 +1,21 @@
 package com.fastcampus.miniorderproject;
 
+import com.fastcampus.miniorderproject.controller.UserController;
+import com.fastcampus.miniorderproject.model.UserModel;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class MiniOrderProjectApplicationTests {
 
+    @Autowired
+    private UserController controller;
     @Test
     void contextLoads() {
+
     }
 
 }

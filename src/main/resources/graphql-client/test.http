@@ -1,8 +1,24 @@
+GRAPHQL http://localhost:8080/graphql
 
+query {
+    getUser(id : "1") {
+        id
+        name
+        nickName
+    }
+}
+
+###
+GRAPHQL http://localhost:8080/graphql
 
 mutation {
-createUser(name : "Lee",email : "test@test.com",address:"서울",nickName:"name",authority:"회원") {
-id
-name
+    createUser(name: "123", password: "123",email: "1@1.com", address: "서울", nickName: "name", authority: "회원") {
+        id
+        name
+        email
+        address
+        nickName
+        authority
+    }
 }
-}
+

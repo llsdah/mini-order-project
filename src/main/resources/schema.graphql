@@ -26,7 +26,7 @@ type UserModel {
 }
 
 type Mutation {
-    createUser(name: String!, email: String!, address: String, nickName: String, authority: String): UserModel
+    createUser(name: String!,password: String!,email: String!, address: String, nickName: String, authority: String): UserModel
     updateUser(id: ID!, name: String, email: String, address: String, nickName: String, authority: String, status: String ): UserModel
     deleteUser(id: ID!): Boolean
 }

@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'war'
-    id 'org.springframework.boot' version '2.7.16'
+    id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
     id 'com.netflix.dgs.codegen' version '6.0.3'
 }
@@ -10,7 +10,7 @@ group = 'com.fastcampus'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '11'
+    sourceCompatibility = '17'
 }
 
 configurations {
@@ -25,15 +25,44 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.assertj:assertj-core:3.22.0'
 
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.mysql:mysql-connector-j'
     runtimeOnly 'com.h2database:h2'
-
-    annotationProcessor 'org.projectlombok:lombok'
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+
+    implementation 'com.querydsl:querydsl-jpa:5.0.0'
+    // 레디스
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    //implementation 'it.ozimov:embedded-redis:0.7.3'
+
+
+    // sevlet
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // jwt
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // lombook
+    compileOnly 'org.projectlombok:lombok:1.18.22' // 현재(2024년 1월)의 최신 버전으로 업데이트해야 합니다.
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    //graphQL
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.1.0'
+    implementation 'com.graphql-java-kickstart:graphql-java-tools:11.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 tasks.named('test') {
